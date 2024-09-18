@@ -27,16 +27,16 @@
 
     <div id="withdraw" style="display: none;" class="ml-5 ">
         <h3 class="text-2xl text-blue-950 font-semibold shadow-xl">Withdraw</h3><br>
-        <div class=" w-[250px] px-2 py-2 border-black rounded-xl font-semibold border-2 text-center mb-4">Current Balance = 5000</div>
+        
         <label>Enter Ammount</label><br>
         <input type="number" id="withdraw-ammount"><br><br><br>
-        <buttton onclick="selectwithdraw "  class=     "border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Withdraw</buttton>
+        <buttton onclick="selectwithdraw ()"  class=     "border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Withdraw</buttton>
     </div>
     
     <div id="deposite" style="display: none;">
         <h3 class="text-2xl text-blue-950 font-semibold shadow-xl">Deposite</h3><br>
         <label>Enter Ammount</label><br>
-        <input type="number" id="withdraw-ammount"><br>
+        <input type="number" id="deposite-ammount"><br>
         <buttton onclick="selectdeposite()" class="border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Deposite</buttton>
     </div>
     
@@ -55,6 +55,8 @@
     
     </div>
     <script>
+let totalamount = 5000
+    
     function passward(){
         let input = document.getElementById("pin").value
         let acc = document.getElementById("account1").value
@@ -62,23 +64,48 @@
       alert(" Welcome! Login Successfully")
        document.getElementById("option").style.display = "block"
        document.getElementById("box").style.display = "none"
-    
+     
         }
         else{
             alert("Please enter Valid Details").style.color = "red"
         }
-    }r
+    }
 
     function selectwithdraw(){
-        let ammount = 500
-            withdraw = 100
-          ammount =  document.getElementById("withdraw-ammount").value
+        let withdraw = document.getElementById("withdraw-ammount")
+          if(withdraw.value>totalamount){
+            alert("insufficient ammount")
+          }
+        else if(withdraw.value == "" ){
+            alert("please enter valid value")
+        }
+     else{
+        totalamount -= withdraw.value
+        document.write("you have " +totalamount + "in your account")
+     }
+          
+      
         document.getElementById("withdraw").style.display = "block"
         document.getElementById("option").style.display = "none"
 
         
     }
     function selectdeposite(){
+       let deposite = document.getElementById("deposite-ammount")
+       
+       if(deposite.value>totalamount){
+            alert("insufficient ammount")
+          }
+        else if(deposite.value == "" ){
+            alert("please enter valid value")
+        }
+     else{
+        totalamount += deposite.value
+        document.write("you have " +totalamount + "in your account")
+     }
+          
+
+
         document.getElementById("deposite").style.display = "block"
         document.getElementById("option").style.display = "none"
     }
