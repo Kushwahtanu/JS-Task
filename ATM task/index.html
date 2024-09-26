@@ -1,122 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-slate-200">
-<p class="bg-white text-black px-5 py-5 ml-[450px] mt-6 w-1/3 text-center text-2xl font-semibold rounded-sm justify-center">ATM MANAGEMENT SYSTEM</p>
-   <div id="box" class=" items-center ml-[530px] mt-20 bg-white mr-60 pt-4 w-72 text-center rounded-xl block">
-    Account no:<br> <input type="password" id="account1"  class="" class="pr-7"><br>
-    
-    PIN no:<br><input type="password" id="pin"  class="ml-10" >
-    
-    <button onclick="passward()"   class="px-4 py-2 bg-blue-500 text-white m-4 ml-10 mt-4 rounded-xl hover:bg-blue-900  hover:border-blue-700">Log In</button>
-   </div>
-   <!-- step2 -->
-   <div id="option" style="display:none;" class="ml-20">
-    <b class="text-xl"> Please select an select options</b><br>
-    <button onclick="selectwithdraw()" class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl hover:bg-blue-700">Withdraw</button>
-    <button onclick="selectdeposite()"class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl">Deposite</button>
-    <button onclick="selecttransfer()"class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl">Transfer Money</button>
-    <button onclick="selectcurrent()"class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl"> Current Balance</button></div>
+    <p
+        class="bg-white text-black px-5 py-5 ml-[450px] mt-6 w-1/3 text-center text-2xl font-semibold rounded-sm justify-center">
+        ATM MANAGEMENT SYSTEM</p>
+    <div id="box" class=" items-center ml-[530px] mt-20 bg-white mr-60 pt-4 w-72 text-center rounded-xl block">
 
+        PIN no:<br><input type="password" id="pin" class="ml-10 border border-3 ">
 
-    <div id="withdraw" style="display: none;" class="ml-5 ">
-        <h3 class="text-2xl text-blue-950 font-semibold shadow-xl">Withdraw</h3><br>
-        
-        <label>Enter Ammount</label><br>
-        <input type="number" id="withdraw-ammount"><br><br><br>
-        <buttton onclick="selectwithdraw ()"  class=     "border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Withdraw</buttton>
+        <button onclick="passward()"
+            class="px-4 py-2 bg-blue-500 text-white m-4 ml-10 mt-4 rounded-xl hover:bg-blue-900  hover:border-blue-700">Log
+            In</button>
     </div>
-    
+    <!-- step2 -->
+    <div id="option" style="display:none;" class="ml-20">
+        <b class="text-xl"> Please select an select options</b><br>
+        <button onclick="selectwithdraw()"
+            class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl hover:bg-blue-700">Withdraw</button>
+        <button onclick="selectdeposite()"
+            class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl">Deposite</button>
+        <button onclick="selecttransfer()" class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl">Transfer
+            Money</button>
+        <button onclick="selectcurrent()" class="ml-2 mr-3 mt-2 bg-blue-950 text-white px-3 py-2 rounded-xl"> Current
+            Balance</button>
+    </div>
+
+
+    <div id="withdraw" style="display: none;" class="ml-[500px vcgf] mt-20 bg-blue-300 py-5 px-5 w-72 rounded-2xl ">
+        <h3 class="text-2xl text-blue-950 font-semibold ">Withdraw</h3><br>
+
+        <label>Enter Ammount</label><br>
+        <input type="number" id="withdraw-ammount" class="border border-3 border border-black"><br><br><br>
+        <buttton onclick="withdraw ()"
+            class="border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Withdraw</buttton>
+            <h1 id="output"></h1>
+    </div>
+
     <div id="deposite" style="display: none;">
         <h3 class="text-2xl text-blue-950 font-semibold shadow-xl">Deposite</h3><br>
         <label>Enter Ammount</label><br>
         <input type="number" id="deposite-ammount"><br>
-        <buttton onclick="selectdeposite()" class="border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Deposite</buttton>
+        <buttton onclick="selectdeposite()"
+            class="border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Deposite</buttton>
     </div>
-    
-    
+
+
     <div id="transfer" style="display: none;">
         <h3 class="text-2xl text-blue-950 font-semibold shadow-xl">Transfer money</h3><br>
         <label>Enter Ammount</label><br>
         <input type="number" id="transfer-ammount"><br>
-       <input Enter transfer account No. >
-        <buttton  onclick="selecttransfer()" class="border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Transfer</buttton>
+        <input Enter transfer account No.>
+        <buttton onclick="selecttransfer()"
+            class="border-blue-950 px-4 py-3 text-blue-950 bg-white mt-20 rounded-2xl border-2">Transfer</buttton>
     </div>
     <div id="balance" style="display: none;">
-    <label>Current balance</label><br>
-    <input type="number" id="balance-ammount"><br>
+        <label>Current balance</label><br>
+        <input type="number" id="balance-ammount"><br>
     </div>
-    
+
     </div>
-    <script>
-let totalamount = 5000
+
     
-    function passward(){
-        let input = document.getElementById("pin").value
-        let acc = document.getElementById("account1").value
-        if(input == "123" && acc=="12"){
-      alert(" Welcome! Login Successfully")
-       document.getElementById("option").style.display = "block"
-       document.getElementById("box").style.display = "none"
-     
-        }
-        else{
-            alert("Please enter Valid Details").style.color = "red"
-        }
-    }
-
-    function selectwithdraw(){
-        let withdraw = document.getElementById("withdraw-ammount")
-          if(withdraw.value>totalamount){
-            alert("insufficient ammount")
-          }
-        else if(withdraw.value == "" ){
-            alert("please enter valid value")
-        }
-     else{
-        totalamount -= withdraw.value
-        document.write("you have " +totalamount + "in your account")
-     }
-          
-      
-        document.getElementById("withdraw").style.display = "block"
-        document.getElementById("option").style.display = "none"
-
-        
-    }
-    function selectdeposite(){
-       let deposite = document.getElementById("deposite-ammount")
-       
-       if(deposite.value>totalamount){
-            alert("insufficient ammount")
-          }
-        else if(deposite.value == "" ){
-            alert("please enter valid value")
-        }
-     else{
-        totalamount += deposite.value
-        document.write("you have " +totalamount + "in your account")
-     }
-          
+    <button onclick="back()" id="goback" style="display: none;">Back</button>
+    <script src="script.js"></script>
 
 
-        document.getElementById("deposite").style.display = "block"
-        document.getElementById("option").style.display = "none"
-    }
-    function selecttransfer(){
-        document.getElementById("transfer").style.display = "block"
-        document.getElementById("option").style.display = "none"
-    }
-    function selectcurrent(){
-        document.getElementById("balance").style.display = "block"
-        document.getElementById("option").style.display = "none"
-    }
-    </script>
+
+
 </body>
+
 </html>
